@@ -88,3 +88,48 @@ unction askQuestions() {
       askQuestions();
     });
   };
+
+  function updateEmpManager (empID, roleID){
+    connection.query("UPDATE employee SET role_id = ? WHERE employee_id = ?", [roleID, empID])
+    };
+    
+    function addEmp() {
+      var questions = [
+        {
+          type: "input",
+          message: "Type employee's first name?",
+          name: "first_name"
+        },
+        {
+          type: "input",
+          message: "Type employee's last name?",
+          name: "last_name"
+        },
+        {
+          type: "input",
+          message: "What's the employee's title (role_id)?",
+          name: "titleID"
+        },
+        {
+          type: "input",
+          message: "Who's the employee's manager (employee_id)?",
+          name: "managerID"
+        }
+      ];
+      inquirer.prompt(questions).then(function(answer) {
+        connection.query(
+          "INSERT INTO employee SET ?",
+          {
+            first_name: answer.first_name,
+            last_name: answer.last_name,
+            role_id: answer.titleID,
+            manager_id: answer.managerID,
+          },
+          function(error) {
+            if (error) throw error;
+            updateEmpManager(answer.titleID, answer.managerID);
+            empAllSearch();
+          }
+        );
+      });
+    };
