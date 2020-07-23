@@ -31,3 +31,27 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Trista", "Dane", 5, 03);
 INSERT INTO employee  (first_name, last_name, role_id, manager_id)
 VALUES ("Rupert", "lee", 6, 02);
+
+CREATE TABLE role (
+  role_id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR (30) NOT NULL,
+  salary DECIMAL(10, 2) NOT NULL,
+  department_id INT,
+  PRIMARY KEY (role_id)
+);
+
+INSERT INTO role (title, salary, department_id)
+VALUES ("Lead sales", 110000, 1);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Salesperson", 70000, 1);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Lead Advertisement", 130000, 2);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Sales Manager", 160000,1);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Receptionsit", 50000, 1);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Legal Team Lead", 150000, 3);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Lawyer", 190000, 3);
+
