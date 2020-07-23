@@ -55,3 +55,10 @@ VALUES ("Legal Team Lead", 150000, 3);
 INSERT INTO role (title, salary, department_id)
 VALUES ("Lawyer", 190000, 3);
 
+CREATE TABLE department( 
+department_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+name VARCHAR (30) NOT NULL
+);
+
+INSERT INTO department (name)
+VALUES ("Sales"), ("Advertisement"), ("Legal");
