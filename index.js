@@ -72,3 +72,19 @@ unction askQuestions() {
       }
     );
   };
+
+  function deptSearch() {
+    connection.query("SELECT * from department", function(err, res) {
+      if (err) throw err;
+      console.table(res);
+      askQuestions();
+    });
+  };
+  
+  function roleSearch() {
+    connection.query("SELECT * from role", function(err, res) {
+      if (err) throw err;
+      console.table(res);
+      askQuestions();
+    });
+  };
