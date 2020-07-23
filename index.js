@@ -15,7 +15,7 @@ connection.connect(function(err) {
   askQuestions();
 });
 
-unction askQuestions() {
+function askQuestions() {
     inquirer
       .prompt({
         name: "action",
@@ -134,14 +134,14 @@ unction askQuestions() {
       });
     };
 
-    function addDept() {
-        inquirer
-          .prompt({
+function addDept() {
+    inquirer
+        .prompt({
             type: "input",
             message: "Name the new department?",
             name: "department"
-          })
-          .then(function(answer) {
+        })
+        .then(function(answer) {
               console.log(answer.department);
             connection.query("INSERT INTO department SET ?",
               {
@@ -151,41 +151,62 @@ unction askQuestions() {
                 if (err) throw err;
                 console.table("Successfully Inserted");
                 askQuestions ();
-              });
-          });
-      };
-
-      function addRole() {
-        inquirer.prompt([
-          {
-            type: "input",
-            message: "What type of role would you like to add?",
-            name: "title"
-          },
-          {
-            type: "input",
-            message: "Department that the new role belongs to:",
-            name: "department_id"
-          },
-          {
-            type: "number",
-            message: "Salary for this role:",
-            name: "salary"
-          }
-        ]).then(function(answer) {
-          connection.query(
-            "INSERT INTO role SET ?",
-            {
-              title: answer.title,
-              department_id: answer.id,
-              salary: answer.salary
-            },
-            function(error, res) {
-              if (error) throw error;
-              console.table("Successfully added!");
-              askQuestions();
-            }
-          );
         });
-      };
+    });
+};
+
+
+function addRole() {
+    inquirer.prompt([
+      {
+        type: "input",
+        message: "What type of role would you like to add?",
+        name: "title"
+      },
+      {
+        type: "input",
+        message: "Department that the new role belongs to:",
+        name: "department_id"
+      },
+      {
+        type: "number",
+        message: "Salary for this role:",
+        name: "salary"
+      }
+    ]).then(function(answer) {
+      connection.query(
+        "INSERT INTO role SET ?",
+        {
+          title: answer.title,
+          department_id: answer.id,
+          salary: answer.salary
+        },
+        function(error, res) {
+          if (error) throw error;
+          console.table("Successfully added!");
+          askQuestions();
+        }
+      );
+    });
+  };
+
+function updateEmployeeRole() {
+    inquirer.prompt([
+        {
+            message: "which employee would you like to update? (use first name)",
+            type: "input",
+            name: "name"
+        }, {
+            message: "enter the new role ID:",
+            type: "number",
+            name: "role_id"
+        }
+        ]).then(function(answer) {
+            connection.query("UPDATE employee SET role_id = ? WHERE first_name = ?", [response.role_id, response.name], function (err, data) {
+              console.table(data);
+        })
+        askQuestions();
+    });
+};    
+
       
