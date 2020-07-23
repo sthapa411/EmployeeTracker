@@ -133,3 +133,24 @@ unction askQuestions() {
         );
       });
     };
+
+    function addDept() {
+        inquirer
+          .prompt({
+            type: "input",
+            message: "Name the new department?",
+            name: "department"
+          })
+          .then(function(answer) {
+              console.log(answer.department);
+            connection.query("INSERT INTO department SET ?",
+              {
+                name: answer.department,
+              },
+              function(err, res) {
+                if (err) throw err;
+                console.table("Successfully Inserted");
+                askQuestions ();
+              });
+          });
+      };
