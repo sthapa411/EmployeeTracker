@@ -154,3 +154,38 @@ unction askQuestions() {
               });
           });
       };
+
+      function addRole() {
+        inquirer.prompt([
+          {
+            type: "input",
+            message: "What type of role would you like to add?",
+            name: "title"
+          },
+          {
+            type: "input",
+            message: "Department that the new role belongs to:",
+            name: "department_id"
+          },
+          {
+            type: "number",
+            message: "Salary for this role:",
+            name: "salary"
+          }
+        ]).then(function(answer) {
+          connection.query(
+            "INSERT INTO role SET ?",
+            {
+              title: answer.title,
+              department_id: answer.id,
+              salary: answer.salary
+            },
+            function(error, res) {
+              if (error) throw error;
+              console.table("Successfully added!");
+              askQuestions();
+            }
+          );
+        });
+      };
+      
