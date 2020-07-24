@@ -7,4 +7,4 @@
 
 
 
-![Watch the video](https://drive.google.com/file/d/1iC8LMzRrvD2DxozPQpfqsV1aAqotI0jJ/view)
+![Watch the video](https://github.com/sthapa411/EmployeeTracker/blob/master/EmployeeTrackerVideo.mp4)
