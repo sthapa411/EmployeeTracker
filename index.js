@@ -64,7 +64,7 @@ function askQuestions() {
 
   function empAllSearch() {
     connection.query(
-      "SELECT employee.employee_id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.role_id LEFT JOIN department on role.department_id = department.department_id LEFT JOIN employee manager on manager.manager_id = employee.manager_id;",
+      "SELECT * FROM employee",
       function(err, res) {
         if (err) throw err;
         console.table(res);
@@ -89,7 +89,7 @@ function askQuestions() {
     });
   };
 
-  function updateEmpManager (empID, roleID){
+  function updateRole (empID, roleID){
     connection.query("UPDATE employee SET role_id = ? WHERE employee_id = ?", [roleID, empID])
     };
     
@@ -127,7 +127,7 @@ function askQuestions() {
           },
           function(error) {
             if (error) throw error;
-            updateEmpManager(answer.titleID, answer.managerID);
+            updateRole(answer.titleID, answer.managerID);
             empAllSearch();
           }
         );
@@ -190,23 +190,22 @@ function addRole() {
     });
   };
 
-function updateEmployeeRole() {
-    inquirer.prompt([
-        {
-            message: "which employee would you like to update? (use first name)",
-            type: "input",
-            name: "name"
-        }, {
-            message: "enter the new role ID:",
-            type: "number",
-            name: "role_id"
-        }
-        ]).then(function(answer) {
-            connection.query("UPDATE employee SET role_id = ? WHERE first_name = ?", [response.role_id, response.name], function (err, data) {
-              console.table(data);
-        })
-        askQuestions();
-    });
-};    
+ function updateEmpRole() {
+  inquirer.prompt([
+      {
+          message: "which employee would you like to update? (use first name)",
+          type: "input",
+          name: "name"
+      }, {
+          message: "enter the new role ID:",
+          type: "number",
+          name: "role_id"
+      }
+  ]).then(function (answer) {
+      connection.query("UPDATE employee SET role_id = ? WHERE first_name = ?", [answer.role_id, answer.name], function (err, res) {
+          console.table(data);
+      })
+      empAllSearch();
+  })
 
-      
+}

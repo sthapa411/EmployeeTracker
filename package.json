@@ -1,21 +1,21 @@
 {
-    "name": "EmployerTracker",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "dependencies": {
-      "inquirer": "^7.0.4",
-      "express": "^4.17.1",
-      "mysql": "^2.18.1"
-    },
-    "devDependencies": {},
-    "scripts": {
-      "test": "echo \"Error: no test specified\\\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/sthapa411/EmployeeTracker"
-    },
-    "author": "",
-    "license": "ISC"
-  }
+  "name": "EmployerTracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^7.0.4",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sthapa411/EmployeeTracker"
+  },
+  "author": "",
+  "license": "ISC"
+}
