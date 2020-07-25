@@ -19,4 +19,4 @@ View departments, roles, employees
 
 Update employee roles
 
-![Watch the video](https://github.com/sthapa411/EmployeeTracker/blob/master/EmployeeTrackerVideo.mp4)
+!(https://github.com/sthapa411/EmployeeTracker)
