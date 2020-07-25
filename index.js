@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "@My20halgit",
+  password: "********",
   database: "employee_trackerDB"
 });
 
@@ -112,7 +112,7 @@ function askQuestions() {
         },
         {
           type: "input",
-          message: "Who's the employee's manager (employee_id)?",
+          message: "Who's the employee's manager (manager_id)?",
           name: "managerID"
         }
       ];
@@ -188,24 +188,27 @@ function addRole() {
         }
       );
     });
-  };
+};
 
- function updateEmpRole() {
-  inquirer.prompt([
-      {
-          message: "which employee would you like to update? (use first name)",
-          type: "input",
-          name: "name"
-      }, {
-          message: "enter the new role ID:",
-          type: "number",
-          name: "role_id"
-      }
-  ]).then(function (answer) {
-      connection.query("UPDATE employee SET role_id = ? WHERE first_name = ?", [answer.role_id, answer.name], function (err, res) {
-          console.table(data);
-      })
-      empAllSearch();
-  })
+function updateEmpRole() {
+    inquirer.prompt([
+        {
+            message: "which employee would you like to update? (use first name)",
+            type: "input",
+            name: "name"
+        }, {
+            message: "enter the new role ID:",
+            type: "number",
+            name: "role_id"
+        }
+    ]).then(function (answer) {
+        connection.query("UPDATE employee SET role_id = ? WHERE first_name = ?", [answer.role_id, answer.name], function (err, res) {
+            console.table(data);
+        })
+        empAllSearch();
+    })
+  
+  }
+            
+           
 
-}
