@@ -1,4 +1,7 @@
 # EmployeeTracker
+
+[Video](https://drive.google.com/file/d/1iC8LMzRrvD2DxozPQpfqsV1aAqotI0jJ/view?usp=sharing)
+
 Description:
 
 As a business owner- 
@@ -19,4 +22,4 @@ View departments, roles, employees
 
 Update employee roles
 
-[!Video](https://drive.google.com/file/d/1iC8LMzRrvD2DxozPQpfqsV1aAqotI0jJ/view?usp=sharing)
+
